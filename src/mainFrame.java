@@ -29,9 +29,41 @@ public class mainFrame {
 		createNewFileButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				CreateNewFile CreateFileobj = new CreateNewFile();
+			}
+		});
+		encryptFileButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Object create korte hobe
+				Encryption EncryptObj = new Encryption();
 
 			}
-			//CreateNewFile();
+		});
+		decryptFileButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Decryption DecryptObj = new Decryption();
+
+			}
+		});
+		createNewFileButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CreateNewFile creatFileObj = new CreateNewFile();
+			}
+		});
+		moveFileButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MoveFile moveFileObj = new MoveFile();
+			}
+		});
+		deleteFileButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DeleteFile DeleteFileObj = new DeleteFile();
+			}
 		});
 	}
 
@@ -44,10 +76,10 @@ public class mainFrame {
 				JFrame RoootFrame = new JFrame();
 				RoootFrame.add(RoooT.RoooTpanel);
 				RoootFrame.setVisible(true);
-				RoootFrame.setLocationRelativeTo(null);
 				RoootFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 				//RoootFrame.setOpacity((float) .8);
 				RoootFrame.setSize(250, 380);
+				RoootFrame.setLocationRelativeTo(null);
 			}
 		});
 	}

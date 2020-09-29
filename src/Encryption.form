@@ -1,29 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Encryption">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="8" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="747" height="496"/>
     </constraints>
     <properties/>
-    <border type="none"/>
+    <border type="line">
+      <color color="-15303475"/>
+    </border>
     <children>
-      <component id="d47e5" class="javax.swing.JLabel">
-        <constraints border-constraint="North"/>
+      <component id="9558e" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="80"/>
+          </grid>
+        </constraints>
         <properties>
-          <font name="Monotype Corsiva" size="35" style="0"/>
-          <horizontalAlignment value="0"/>
-          <preferredSize width="28" height="80"/>
+          <font name="Lucida Calligraphy" size="35" style="0"/>
+          <foreground color="-9033267"/>
           <text value="Cypher Text"/>
         </properties>
       </component>
-      <component id="4274" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
-        <constraints border-constraint="West"/>
-        <properties/>
+      <component id="e7e39" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+        <constraints>
+          <grid row="2" column="0" row-span="5" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-3229233"/>
+          <font name="MV Boli" size="16"/>
+        </properties>
       </component>
-      <component id="beeb5" class="javax.swing.JTextArea" binding="textArea2" default-binding="true">
-        <constraints border-constraint="East"/>
-        <properties/>
+      <component id="82776" class="javax.swing.JTextArea" binding="textArea2" default-binding="true">
+        <constraints>
+          <grid row="2" column="4" row-span="5" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-3229233"/>
+          <font name="Georgia" size="16"/>
+        </properties>
       </component>
+      <component id="ca36d" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Gadugi" size="26"/>
+          <text value="Key"/>
+        </properties>
+      </component>
+      <component id="17c4d" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Monotype Corsiva" size="20"/>
+          <text value="Encrypt"/>
+        </properties>
+      </component>
+      <component id="19bf5" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Monotype Corsiva" size="20"/>
+          <text value="Decrypt"/>
+        </properties>
+      </component>
+      <hspacer id="4b2e">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="1e3f3">
+        <constraints>
+          <grid row="7" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="7f3d6" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="100" height="45"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <caretColor color="-2439127"/>
+          <font name="Arial" size="20"/>
+          <foreground color="-13634255"/>
+          <horizontalAlignment value="0"/>
+          <text value=""/>
+          <toolTipText value=""/>
+        </properties>
+      </component>
+      <hspacer id="208de">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="608f">
+        <constraints>
+          <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <vspacer id="a31c1">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="8cc3c" class="javax.swing.JButton" binding="clickButton" default-binding="true">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-5800639"/>
+          <text value="Click"/>
+        </properties>
+      </component>
+      <vspacer id="1c666">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>
