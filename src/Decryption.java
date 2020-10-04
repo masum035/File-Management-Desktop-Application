@@ -6,6 +6,7 @@ public class Decryption {
 	private JButton clickButton;
 	private JTextField textField1;
 	private JPanel DecryptPanael;
+	private JComboBox comboBox1;
 
 	public Decryption(){
 		JFrame DecryptFrame = new JFrame();

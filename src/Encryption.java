@@ -6,6 +6,7 @@ public class Encryption {
 	private JTextArea textArea2;
 	private JTextField textField1;
 	private JButton clickButton;
+	private JComboBox comboBox1;
 
 	public Encryption(){
 		JFrame encryptFrame = new JFrame();
