@@ -11,7 +11,7 @@ public class Log_In_page {
 		JFrame LogInFrame = new JFrame();
 		LogInFrame.add(Loginpanel);
 		LogInFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		LogInFrame.setSize(500, 600);
+		LogInFrame.setSize(360, 410);
 		LogInFrame.setLocationRelativeTo(null);
 		LogInFrame.setVisible(true);
 

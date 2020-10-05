@@ -65,6 +65,18 @@ public class mainFrame {
 				DeleteFile DeleteFileObj = new DeleteFile();
 			}
 		});
+		searchFileButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SearchingFile SearchFileObj = new SearchingFile();
+			}
+		});
+		hideFileButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				HiddennFile HiddenFileObj = new HiddennFile();
+			}
+		});
 	}
 
 	public static void main(String[] args) {
