@@ -10,7 +10,7 @@ public class DeleteFile {
 	public DeleteFile(){
 		JFrame deleteFileFrame = new JFrame();
 		deleteFileFrame.add(DeletePanel);
-		deleteFileFrame.setSize(800,200);
+		deleteFileFrame.setSize(800,210);
 		deleteFileFrame.setLocationRelativeTo(null);
 		deleteFileFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		deleteFileFrame.setVisible(true);

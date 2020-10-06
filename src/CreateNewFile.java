@@ -12,7 +12,7 @@ public class CreateNewFile {
 	public CreateNewFile(){
 		JFrame CreateFileFrame = new JFrame();
 		CreateFileFrame.add(CreateFilePanel);
-		CreateFileFrame.setSize(800,200);
+		CreateFileFrame.setSize(800,210);
 		CreateFileFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		CreateFileFrame.setLocationRelativeTo(null);
 		CreateFileFrame.setVisible(true);

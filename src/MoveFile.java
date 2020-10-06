@@ -12,7 +12,7 @@ public class MoveFile {
 		JFrame moveFileFrame = new JFrame();
 		moveFileFrame.add(Movepanel);
 		moveFileFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		moveFileFrame.setSize(800,200);
+		moveFileFrame.setSize(800,210);
 		moveFileFrame.setLocationRelativeTo(null);
 		moveFileFrame.setVisible(true);
 
