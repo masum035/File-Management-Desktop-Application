@@ -226,8 +226,4 @@ public class ExtraFeature extends Component implements ActionListener {
 
 	}
 
-	public static void main(String[] args) {
-		ExtraFeature x = new ExtraFeature();
-	}
-
 }

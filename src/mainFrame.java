@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class mainFrame implements ActionListener{
+public class mainFrame implements ActionListener {
 	private JPanel RoooTpanel;
 	private JButton createNewFileButton;
 	private JButton moveFileButton;
@@ -16,6 +16,16 @@ public class mainFrame implements ActionListener{
 	private JButton propertiesButton;
 	private JButton hideFileButton;
 	private JMenuBar menuBar;
+	private JMenuItem CreateFileMenu;
+	private JMenuItem MoveFileMenu;
+	private JMenuItem SearchFileMenu;
+	private JMenuItem HideFileMenu;
+	private JMenuItem LockFileMenu;
+	private JMenuItem EncryptFileMenu;
+	private JMenuItem PropertyFileMenu;
+	private JMenuItem DeleteFileMenu;
+	private JMenuItem gameMenu;
+	private JMenu helpMenu;
 
 	public mainFrame() {
 
@@ -29,16 +39,17 @@ public class mainFrame implements ActionListener{
 
 		// TODO: 10/6/2020 menuBar add korte hobe + game + help feature add korte hobe
 		menuBar = new JMenuBar();
-		JMenu helpMenu = new JMenu("Need Help?");
+		helpMenu = new JMenu("Need Help?");
+		gameMenu = new JMenuItem("Bored! Play with me!");
 
-		JMenuItem CreateFileMenu = new JMenuItem("Regarding Create File");
-		JMenuItem MoveFileMenu = new JMenuItem("Regarding Move File");
-		JMenuItem SearchFileMenu = new JMenuItem("Regarding Search File");
-		JMenuItem HideFileMenu = new JMenuItem("Regarding Hide File");
-		JMenuItem LockFileMenu = new JMenuItem("Regarding Lock File");
-		JMenuItem EncryptFileMenu = new JMenuItem("Regarding Encrypt File");
-		JMenuItem PropertyFileMenu = new JMenuItem("Regarding Properties");
-		JMenuItem DeleteFileMenu = new JMenuItem("Regarding Delete File");
+		CreateFileMenu = new JMenuItem("Regarding Create File");
+		MoveFileMenu = new JMenuItem("Regarding Move File");
+		SearchFileMenu = new JMenuItem("Regarding Search File");
+		HideFileMenu = new JMenuItem("Regarding Hide File");
+		LockFileMenu = new JMenuItem("Regarding Lock File");
+		EncryptFileMenu = new JMenuItem("Regarding Encrypt File");
+		PropertyFileMenu = new JMenuItem("Regarding Properties");
+		DeleteFileMenu = new JMenuItem("Regarding Delete File");
 
 		CreateFileMenu.addActionListener(this);
 		MoveFileMenu.addActionListener(this);
@@ -48,6 +59,7 @@ public class mainFrame implements ActionListener{
 		EncryptFileMenu.addActionListener(this);
 		PropertyFileMenu.addActionListener(this);
 		DeleteFileMenu.addActionListener(this);
+		gameMenu.addActionListener(this);
 
 		helpMenu.add(CreateFileMenu);
 		helpMenu.add(MoveFileMenu);
@@ -57,12 +69,10 @@ public class mainFrame implements ActionListener{
 		helpMenu.add(EncryptFileMenu);
 		helpMenu.add(PropertyFileMenu);
 		helpMenu.add(DeleteFileMenu);
+		helpMenu.add(gameMenu);
 
-		JMenu gameMenu = new JMenu("Bored! Play with me!");
 		menuBar.add(helpMenu);
-		menuBar.add(gameMenu);
-
-
+		//menuBar.add(gameMenu);
 
 
 		createNewFileButton.addActionListener(new ActionListener() {
@@ -135,6 +145,34 @@ public class mainFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == gameMenu){
+			ExtraFeature gameObj = new ExtraFeature();
+		}
+		if (e.getSource() == CreateFileMenu) {
+			//ekhane dialogueBox use korte hobe
+			System.out.println("instruction goes here");
+		}
+		if(e.getSource() == MoveFileMenu){
+			System.out.println("");
+		}
+		if(e.getSource() == SearchFileMenu){
+			System.out.println("");
+		}
+		if(e.getSource() == HideFileMenu){
+			System.out.println("");
+		}
+		if(e.getSource() == EncryptFileMenu){
+			System.out.println("");
+		}
+		if (e.getSource() == LockFileMenu){
+			System.out.println("");
+		}
+		if(e.getSource() == PropertyFileMenu){
+			System.out.println("");
+		}
+		if(e.getSource() == DeleteFileMenu){
+			System.out.println("");
+		}
 
 	}
 
