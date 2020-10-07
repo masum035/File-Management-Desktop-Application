@@ -40,7 +40,7 @@ public class mainFrame implements ActionListener {
 		// TODO: 10/6/2020 menuBar add korte hobe + game + help feature add korte hobe
 		menuBar = new JMenuBar();
 		helpMenu = new JMenu("Need Help?");
-		gameMenu = new JMenuItem("Bored! Play with me!");
+		gameMenu = new JMenuItem("Bored! Let's Play!");
 
 		CreateFileMenu = new JMenuItem("Regarding Create File");
 		MoveFileMenu = new JMenuItem("Regarding Move File");
@@ -141,57 +141,54 @@ public class mainFrame implements ActionListener {
 				PropertiesOfFile propertiesObj = new PropertiesOfFile();
 			}
 		});
+
+		JFrame RoootFrame = new JFrame();
+		RoootFrame.add(RoooTpanel);
+		RoootFrame.setJMenuBar(menuBar);
+		RoootFrame.setVisible(true);
+		RoootFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		//RoootFrame.setOpacity((float) .8);
+		RoootFrame.setSize(250, 400);
+		RoootFrame.setLocation(6, 90);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == gameMenu){
+		if (e.getSource() == gameMenu) {
 			ExtraFeature gameObj = new ExtraFeature();
 		}
 		if (e.getSource() == CreateFileMenu) {
 			//ekhane dialogueBox use korte hobe
 			System.out.println("instruction goes here");
 		}
-		if(e.getSource() == MoveFileMenu){
+		if (e.getSource() == MoveFileMenu) {
 			System.out.println("");
 		}
-		if(e.getSource() == SearchFileMenu){
+		if (e.getSource() == SearchFileMenu) {
 			System.out.println("");
 		}
-		if(e.getSource() == HideFileMenu){
+		if (e.getSource() == HideFileMenu) {
 			System.out.println("");
 		}
-		if(e.getSource() == EncryptFileMenu){
+		if (e.getSource() == EncryptFileMenu) {
 			System.out.println("");
 		}
-		if (e.getSource() == LockFileMenu){
+		if (e.getSource() == LockFileMenu) {
 			System.out.println("");
 		}
-		if(e.getSource() == PropertyFileMenu){
+		if (e.getSource() == PropertyFileMenu) {
 			System.out.println("");
 		}
-		if(e.getSource() == DeleteFileMenu){
+		if (e.getSource() == DeleteFileMenu) {
 			System.out.println("");
 		}
 
-	}
+//		SwingUtilities.invokeLater(new Runnable() {
+//			@Override
+//			public void run() {
+//			}
+//		});
 
-	public static void main(String[] args) {
-
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				mainFrame RoooT = new mainFrame();
-				JFrame RoootFrame = new JFrame();
-				RoootFrame.add(RoooT.RoooTpanel);
-				RoootFrame.setJMenuBar(RoooT.menuBar);
-				RoootFrame.setVisible(true);
-				RoootFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-				//RoootFrame.setOpacity((float) .8);
-				RoootFrame.setSize(250, 380);
-				RoootFrame.setLocationRelativeTo(null);
-			}
-		});
 	}
 
 }
