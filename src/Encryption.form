@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Encryption">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="10" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="18" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="747" height="496"/>
+      <xy x="20" y="20" width="987" height="576"/>
     </constraints>
     <properties/>
     <border type="line">
@@ -22,29 +22,34 @@
           <text value="Cypher Text"/>
         </properties>
       </component>
-      <component id="e7e39" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+      <component id="e7e39" class="javax.swing.JTextArea" binding="textAreaforEncrypt">
         <constraints>
-          <grid row="2" column="0" row-span="7" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="2" column="0" row-span="15" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
         <properties>
           <background color="-3229233"/>
+          <dragEnabled value="true"/>
           <font name="MV Boli" size="16"/>
+          <lineWrap value="true"/>
+          <wrapStyleWord value="true"/>
         </properties>
       </component>
-      <component id="82776" class="javax.swing.JTextArea" binding="textArea2" default-binding="true">
+      <component id="82776" class="javax.swing.JTextArea" binding="textAreaForDecrypt">
         <constraints>
-          <grid row="2" column="4" row-span="7" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="2" column="4" row-span="15" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
         <properties>
           <background color="-3229233"/>
           <font name="Georgia" size="16"/>
+          <lineWrap value="true"/>
+          <wrapStyleWord value="true"/>
         </properties>
       </component>
-      <component id="ca36d" class="javax.swing.JLabel">
+      <component id="ca36d" class="javax.swing.JLabel" binding="keyLabel">
         <constraints>
           <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -59,7 +64,7 @@
         </constraints>
         <properties>
           <font name="Monotype Corsiva" size="20"/>
-          <text value="Encrypt"/>
+          <text value="Plain Text"/>
         </properties>
       </component>
       <component id="19bf5" class="javax.swing.JLabel">
@@ -68,20 +73,20 @@
         </constraints>
         <properties>
           <font name="Monotype Corsiva" size="20"/>
-          <text value="Decrypt"/>
+          <text value="Encrypted"/>
         </properties>
       </component>
       <hspacer id="4b2e">
         <constraints>
-          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="17" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="1e3f3">
         <constraints>
-          <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="17" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <component id="7f3d6" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="7f3d6" class="javax.swing.JTextField" binding="textFieldforKey">
         <constraints>
           <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="100" height="45"/>
@@ -99,33 +104,14 @@
       </component>
       <hspacer id="208de">
         <constraints>
-          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="17" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="608f">
         <constraints>
-          <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="17" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <vspacer id="a31c1">
-        <constraints>
-          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
-      <component id="8cc3c" class="javax.swing.JButton" binding="clickButton" default-binding="true">
-        <constraints>
-          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <foreground color="-5800639"/>
-          <text value="Click"/>
-        </properties>
-      </component>
-      <vspacer id="1c666">
-        <constraints>
-          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
       <component id="e1860" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
         <constraints>
           <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
@@ -134,11 +120,11 @@
           <font name="Inconsolata" size="16"/>
           <model>
             <item value="Base64"/>
-            <item value="Hex"/>
-            <item value="XOR"/>
             <item value="Caesar"/>
             <item value="Atbash"/>
             <item value="Rot47"/>
+            <item value="Hex"/>
+            <item value="XOR"/>
             <item value="SelfKey"/>
           </model>
         </properties>
@@ -146,6 +132,62 @@
       <vspacer id="fb0c7">
         <constraints>
           <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="3a009">
+        <constraints>
+          <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="bd388" class="javax.swing.JButton" binding="chooseFileDirButton" default-binding="true">
+        <constraints>
+          <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Choose File Dir"/>
+          <visible value="false"/>
+        </properties>
+      </component>
+      <vspacer id="fd197">
+        <constraints>
+          <grid row="15" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="5e8af">
+        <constraints>
+          <grid row="13" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="e0565" class="javax.swing.JTextPane" binding="TextPane">
+        <constraints>
+          <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Choose File Location where you want to save this encrypted File"/>
+          <visible value="false"/>
+        </properties>
+      </component>
+      <component id="359df" class="javax.swing.JButton" binding="makeItFileButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Make It File"/>
+        </properties>
+      </component>
+      <component id="8df47" class="javax.swing.JButton" binding="convertButton" default-binding="true">
+        <constraints>
+          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Convert"/>
+        </properties>
+      </component>
+      <vspacer id="53441">
+        <constraints>
+          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
     </children>

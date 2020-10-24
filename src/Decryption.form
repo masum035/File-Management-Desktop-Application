@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Decryption">
-  <grid id="27dc6" binding="DecryptPanael" layout-manager="GridLayoutManager" row-count="10" column-count="11" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="DecryptPanael" layout-manager="GridLayoutManager" row-count="12" column-count="11" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="28" y="39" width="731" height="473"/>
@@ -22,25 +22,31 @@
           <text value="Cypher Text"/>
         </properties>
       </component>
-      <component id="42069" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+      <component id="42069" class="javax.swing.JTextArea" binding="textAreaforDecrypted">
         <constraints>
-          <grid row="2" column="0" row-span="8" col-span="4" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="2" column="0" row-span="9" col-span="4" vsize-policy="6" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
         <properties>
           <background color="-5973307"/>
+          <font/>
+          <lineWrap value="true"/>
           <text value=""/>
+          <wrapStyleWord value="true"/>
         </properties>
       </component>
-      <component id="9ea8a" class="javax.swing.JTextArea" binding="textArea2" default-binding="true">
+      <component id="9ea8a" class="javax.swing.JTextArea" binding="textAreaForPlaintext">
         <constraints>
-          <grid row="2" column="5" row-span="8" col-span="6" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="2" column="5" row-span="9" col-span="6" vsize-policy="6" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
         <properties>
           <background color="-5973307"/>
+          <doubleBuffered value="false"/>
+          <lineWrap value="true"/>
+          <wrapStyleWord value="true"/>
         </properties>
       </component>
       <component id="96568" class="javax.swing.JLabel">
@@ -49,7 +55,7 @@
         </constraints>
         <properties>
           <font name="Monotype Corsiva" size="20"/>
-          <text value="Encrypted info"/>
+          <text value="Plain Text info"/>
         </properties>
       </component>
       <component id="4c90d" class="javax.swing.JLabel">
@@ -69,13 +75,14 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="47132" class="javax.swing.JLabel">
+          <component id="47132" class="javax.swing.JLabel" binding="keyLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Lucida Calligraphy" size="20"/>
               <text value="Key"/>
+              <visible value="false"/>
             </properties>
           </component>
         </children>
@@ -88,7 +95,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="26fa9" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+          <component id="26fa9" class="javax.swing.JTextField" binding="textFieldforKey">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -98,24 +105,21 @@
               <background color="-16777216"/>
               <font name="Arial" size="20"/>
               <foreground color="-13634255"/>
+              <visible value="false"/>
             </properties>
           </component>
         </children>
       </grid>
-      <component id="f8d4e" class="javax.swing.JButton" binding="clickButton" default-binding="true">
+      <component id="f8d4e" class="javax.swing.JButton" binding="convertButton" default-binding="true">
         <constraints>
           <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <foreground color="-9033267"/>
-          <text value="Click"/>
+          <text value="Convert"/>
+          <visible value="false"/>
         </properties>
       </component>
-      <vspacer id="4dbb9">
-        <constraints>
-          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
       <component id="a7acc" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
         <constraints>
           <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -124,20 +128,49 @@
           <font name="Inconsolata" size="16"/>
           <model>
             <item value="Base64"/>
-            <item value="Hex"/>
-            <item value="XOR"/>
             <item value="Caesar"/>
             <item value="Atbash"/>
             <item value="Rot47"/>
+            <item value="Hex"/>
+            <item value="XOR"/>
             <item value="SelfKey"/>
           </model>
         </properties>
       </component>
-      <vspacer id="9418a">
+      <hspacer id="5cb03">
         <constraints>
-          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="11" column="0" row-span="1" col-span="4" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="7f924">
+        <constraints>
+          <grid row="11" column="5" row-span="1" col-span="6" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="4b8ce" class="javax.swing.JButton" binding="makeItFileButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Make it File"/>
+        </properties>
+      </component>
+      <vspacer id="a317">
+        <constraints>
+          <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
+      <component id="c3f37" class="javax.swing.JTextPane" binding="textPane">
+        <constraints>
+          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Choose File Location where you want to save this encrypted File"/>
+          <visible value="false"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
