@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="8871a" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="8871a" class="javax.swing.JTextField" binding="textFieldforChoose">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -27,7 +27,7 @@
           <text value="File Chooser"/>
         </properties>
       </component>
-      <component id="4243e" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="4243e" class="javax.swing.JTextField" binding="textFieldforDir">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -78,7 +78,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="98cfe" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+      <component id="98cfe" class="javax.swing.JTextArea" binding="textArea">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>

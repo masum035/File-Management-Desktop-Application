@@ -77,6 +77,7 @@ public class Encryption {
 		});
 	}
 
+	// TODO: 10/24/2020 rot47 and Hex encryption Bakki ase 
 	public static String Base64encode(String string) {
 		Base64.Encoder encoder = Base64.getEncoder();
 		byte[] encoded = encoder.encode(string.getBytes());

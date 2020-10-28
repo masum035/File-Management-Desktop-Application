@@ -15,6 +15,7 @@ public class mainFrame implements ActionListener {
 	private JButton deleteFileButton;
 	private JButton propertiesButton;
 	private JButton hideFileButton;
+	private JButton imageConverterButton;
 	private JMenuBar menuBar;
 	private JMenuItem CreateFileMenu;
 	private JMenuItem MoveFileMenu;
@@ -139,6 +140,12 @@ public class mainFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PropertiesOfFile propertiesObj = new PropertiesOfFile();
+			}
+		});
+		imageConverterButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				imageConverter imageConverterObj = new imageConverter();
 			}
 		});
 
