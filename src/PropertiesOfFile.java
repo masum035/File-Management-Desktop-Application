@@ -43,7 +43,7 @@ public class PropertiesOfFile {
 					String createdTime = "Creation Time : " + attr.creationTime() + "\n";
 					String accessedTime = "Accessed Time : " + attr.lastAccessTime() + "\n";
 					String lastModified = "Last Modified : " + attr.lastModifiedTime() + "\n";
-					String FileSize = "File Size     : " + attr.size() /1024 + " MB\n";
+					String FileSize = "File Size     : " + attr.size() + " Bytes\n";
 					String readable = "Readable       : " + file.canRead() + "\n";
 					String writable = "Writable      : " + file.canWrite() + "\n";
 					String hidden = "Hidden      : " + file.isHidden() + "\n";

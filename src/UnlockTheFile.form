@@ -44,19 +44,22 @@
           <text value="FileChooser"/>
         </properties>
       </component>
-      <component id="17292" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="17292" class="javax.swing.JTextField" binding="textFieldforFileChooser">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <editable value="false"/>
+        </properties>
       </component>
-      <component id="f6256" class="javax.swing.JLabel">
+      <component id="f6256" class="javax.swing.JLabel" binding="infoLabel">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Consolas" size="18" style="1"/>
           <text value=""/>
         </properties>
       </component>

@@ -155,7 +155,7 @@ public class mainFrame implements ActionListener {
 		RoootFrame.setVisible(true);
 		RoootFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		//RoootFrame.setOpacity((float) .8);
-		RoootFrame.setSize(250, 400);
+		RoootFrame.setSize(250, 430);
 		RoootFrame.setLocation(6, 90);
 	}
 
