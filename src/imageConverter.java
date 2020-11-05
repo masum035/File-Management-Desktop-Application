@@ -63,7 +63,7 @@ public class imageConverter implements DropTargetListener {
 			}
 		});
 	}
-
+//here goes Drag & Drop
 	@Override
 	public void dragEnter(DropTargetDragEvent dtde) {
 		System.out.println("Drag Enter");
@@ -100,6 +100,8 @@ public class imageConverter implements DropTargetListener {
 						String allimageFile = list.get(i).toString();
 						if (allimageFile.contains(".jpg") || allimageFile.contains(".png") || allimageFile.contains(".gif") || allimageFile.contains(".jpeg") || allimageFile.contains(".bmp")) {
 							pathArray.add(allimageFile);
+						}else {
+							textArea.append("Last Dropped item is not an image file\nplease Drop an actual image file\n");
 						}
 					}
 					event.dropComplete(true);

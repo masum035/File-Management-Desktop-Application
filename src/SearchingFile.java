@@ -1,18 +1,18 @@
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultHighlighter;
+import javax.swing.text.Highlighter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class SearchingFile {
 	private JPanel SearchPanel;
 	private JTextField textFieldforDir;
-	private JButton JFileChooserButton;
-	private JTextField textFieldforChooseDir;
 	private JCheckBox checkBoxforAll;
 	private JTextArea textArea;
 	private JCheckBox checkBoxforOnlyHidden;
@@ -21,6 +21,8 @@ public class SearchingFile {
 	private JButton buttonforSearch;
 	private JCheckBox checkBoxforSubFolder;
 	private JButton startSearchButton;
+
+	String fileabsolutePath = "";
 
 	public SearchingFile() {
 		JFrame SearchFrame = new JFrame();
@@ -103,6 +105,18 @@ public class SearchingFile {
 					outputt = outputt.replaceAll(",", "\n");
 				}
 				textArea.setText(outputt);
+				//for Heighlighting the output
+				int pos = 0;
+				Highlighter highlighter = textArea.getHighlighter();
+				Highlighter.HighlightPainter painter = new DefaultHighlighter.DefaultHighlightPainter(Color.pink);
+				while ((pos = (outputt.indexOf(name, pos))) >= 0) {
+					try {
+						highlighter.addHighlight(pos, pos + name.length(), painter);
+					} catch (BadLocationException badLocationException) {
+						badLocationException.printStackTrace();
+					}
+					pos += name.length();
+				}
 			}
 		});
 		buttonforSearch.addActionListener(new ActionListener() {
@@ -117,6 +131,18 @@ public class SearchingFile {
 					output = output.replaceAll(",", "\n");
 				}
 				textArea.setText(output);
+				//for Heighlighting the output
+				int pos = 0;
+				Highlighter highlighter = textArea.getHighlighter();
+				Highlighter.HighlightPainter painter = new DefaultHighlighter.DefaultHighlightPainter(Color.pink);
+				while ((pos = (output.indexOf(ext, pos))) >= 0) {
+					try {
+						highlighter.addHighlight(pos, pos + ext.length(), painter);
+					} catch (BadLocationException badLocationException) {
+						badLocationException.printStackTrace();
+					}
+					pos += ext.length();
+				}
 			}
 		});
 		textFieldbyName.addActionListener(new ActionListener() {
@@ -141,7 +167,6 @@ public class SearchingFile {
 		}
 		ArrayList<String> fileList = new ArrayList<>();
 		for (String file : files) {
-			System.out.println(file);
 			fileList.add(file);
 		}
 		return fileList.toString();
@@ -211,7 +236,7 @@ public class SearchingFile {
 		};
 		File[] files = folder.listFiles(filterFiles);
 		if (Arrays.stream(files).count() == 0) {
-			return "No Such File Exists";
+			return "No Such File Exists of the given Extention";
 		} else {
 			ArrayList<String> fileList = new ArrayList<>();
 			for (File file : files) {
