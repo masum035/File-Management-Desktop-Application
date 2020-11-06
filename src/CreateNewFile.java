@@ -33,7 +33,6 @@ public class CreateNewFile {
 					System.out.println(file);
 					System.out.println(fileChooser.getDescription(file));
 				}
-
 			}
 		});
 	}

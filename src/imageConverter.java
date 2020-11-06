@@ -38,7 +38,7 @@ public class imageConverter implements DropTargetListener {
 				for (int i = 0; i < sz; i++) {
 					System.out.println(pathArray.get(i));
 					String destfolderLocation = "C:\\Users\\Malware\\Pictures\\Testing Folder\\";
-					String destFileName = "output";
+					String destFileName = "convertedImage";
 					Path sourceFileLocation = Path.of(pathArray.get(i));
 					File souceFile = new File(String.valueOf(sourceFileLocation));
 
