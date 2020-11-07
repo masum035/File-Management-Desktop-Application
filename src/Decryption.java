@@ -1,9 +1,23 @@
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.dnd.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
-public class Decryption {
+public class Decryption implements DropTargetListener {
 	private JTextArea textAreaforDecrypted;
 	private JTextArea textAreaForPlaintext;
 	private JButton convertButton;
@@ -12,9 +26,18 @@ public class Decryption {
 	private JComboBox comboBox1;
 	private JButton makeItFileButton;
 	private JLabel keyLabel;
-	private JTextPane textPane;
+	private JButton chooserForTextSave;
+	private JButton saveButtonForTxt;
+	private JButton chooserForFileSave;
+	private JButton saveBtnforFileSave;
+	private JTextArea textAreaForDragandDrop;
+
+	ArrayList<String> pathArray = new ArrayList<>();
+	String folderofDestinationPathforTxt = null;
+	String folderofDestinationPathforFileSave = null;
 
 	public Decryption() {
+		DropTarget dt = new DropTarget(textAreaForDragandDrop, this);
 		JFrame DecryptFrame = new JFrame();
 		DecryptFrame.add(DecryptPanael);
 		DecryptFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
@@ -54,7 +77,6 @@ public class Decryption {
 					keyLabel.setVisible(true);
 					textFieldforKey.setVisible(true);
 					convertButton.setVisible(true);
-					textPane.setVisible(true);
 				}
 
 			}
@@ -71,13 +93,90 @@ public class Decryption {
 					keyLabel.setVisible(false);
 					textFieldforKey.setVisible(false);
 					convertButton.setVisible(false);
-					textPane.setVisible(false);
+				}
+			}
+		});
+
+		chooserForTextSave.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveButtonForTxt.setVisible(true);
+				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				fileChooser.setCurrentDirectory(new File(".")); //it will be in our current directory
+				int response = fileChooser.showOpenDialog(textAreaforDecrypted);
+				if (response == JFileChooser.APPROVE_OPTION) {
+					folderofDestinationPathforTxt = fileChooser.getSelectedFile().getAbsolutePath();
+					//textAreaForDestination.setText(fileDestinationPath);
+				}
+			}
+		});
+		saveButtonForTxt.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String fileName = "\\deCryptedFile.txt";
+				File file = new File(folderofDestinationPathforTxt + fileName);
+				try {
+					FileWriter fileWriter = new FileWriter(file);
+					BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+					bufferedWriter.write(textAreaForPlaintext.getText());
+					bufferedWriter.close();
+					fileWriter.close();
+					JOptionPane.showMessageDialog(textFieldforKey, "Decrypted File has been successfully saved as 'deCryptedFile.txt' in selected directory\nThanks for using this programme", "File Saved", JOptionPane.INFORMATION_MESSAGE);
+				} catch (IOException ioException) {
+					ioException.printStackTrace();
+				}
+			}
+		});
+		chooserForFileSave.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveBtnforFileSave.setVisible(true);
+				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				fileChooser.setCurrentDirectory(new File(".")); //it will be in our current directory
+				int response = fileChooser.showOpenDialog(textAreaforDecrypted);
+				if (response == JFileChooser.APPROVE_OPTION) {
+					folderofDestinationPathforFileSave = fileChooser.getSelectedFile().getAbsolutePath();
+					//textAreaForDestination.setText(fileDestinationPath);
+				}
+			}
+		});
+		saveBtnforFileSave.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String secretkey = "mYnAMeiSMaSumVai"; // exactly 16 byte disi
+				for (int i = 0; i < pathArray.size(); i++) {
+					String fileinputPath = pathArray.get(i);
+					String extention = "";
+					if (fileinputPath.contains(".")) {
+						int lastDotPosition = fileinputPath.lastIndexOf('.');
+						extention = fileinputPath.substring(lastDotPosition + 1, fileinputPath.length());
+					}
+					String outputFileLocation = folderofDestinationPathforFileSave + "\\EncryptedFile_" + i + "." + extention;
+					// TODO: 11/8/2020 fix the error for file decrypt 
+					try {
+						directFileDecrytion(secretkey, fileinputPath, outputFileLocation);
+						JOptionPane.showMessageDialog(textAreaforDecrypted, "File has Been Saved as 'EncryptedFile_' in your choosen directory", "File Encryption Success", JOptionPane.INFORMATION_MESSAGE);
+					} catch (NoSuchPaddingException noSuchPaddingException) {
+						noSuchPaddingException.printStackTrace();
+					} catch (NoSuchAlgorithmException noSuchAlgorithmException) {
+						noSuchAlgorithmException.printStackTrace();
+					} catch (InvalidKeyException invalidKeyException) {
+						invalidKeyException.printStackTrace();
+					} catch (IOException ioException) {
+						ioException.printStackTrace();
+					} catch (BadPaddingException badPaddingException) {
+						badPaddingException.printStackTrace();
+					} catch (IllegalBlockSizeException illegalBlockSizeException) {
+						illegalBlockSizeException.printStackTrace();
+					}
 				}
 			}
 		});
 	}
 
-	public static String Base64Decode(String string) throws  IllegalArgumentException{
+	public static String Base64Decode(String string) throws IllegalArgumentException {
 		Base64.Decoder decoder = Base64.getDecoder();
 		byte[] decoded = decoder.decode(string);
 		return new String(decoded);
@@ -123,5 +222,81 @@ public class Decryption {
 			}
 		}
 		return encrypText;
+	}
+
+	public static void directFileDecrytion(String secretKey, String fileinputPath, String fileoutputPath) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IOException, BadPaddingException, IllegalBlockSizeException {
+		var key = new SecretKeySpec(secretKey.getBytes(), "AES");
+		var cipher = Cipher.getInstance("AES");
+		cipher.init(Cipher.DECRYPT_MODE, key);
+
+		//here i read the file & take it into array
+		var fileInput = new File(fileinputPath);
+		var inputStream = new FileInputStream(fileInput);
+		var inputBytes = new byte[(int) fileInput.length()];
+		inputStream.read(inputBytes);
+
+		//here i am calling the encryption process
+		byte[] outputBytes = cipher.doFinal(inputBytes);
+
+		//now i want to add this outputStram into a new file
+		var fileEncryptOut = new File(fileoutputPath);
+		var outputStream = new FileOutputStream(fileEncryptOut);
+		outputStream.write(outputBytes);
+
+		inputStream.close();
+		outputStream.close();
+	}
+
+	@Override
+	public void dragEnter(DropTargetDragEvent dtde) {
+
+	}
+
+	@Override
+	public void dragOver(DropTargetDragEvent dtde) {
+
+	}
+
+	@Override
+	public void dropActionChanged(DropTargetDragEvent dtde) {
+
+	}
+
+	@Override
+	public void dragExit(DropTargetEvent dte) {
+
+	}
+
+	@Override
+	public void drop(DropTargetDropEvent event) {
+		textAreaForDragandDrop.append("\n");
+		chooserForFileSave.setVisible(true);
+		//infoLabelForDragAndDrop.setVisible(true);
+		//panelForMessageEncrypt.setVisible(false);
+
+		try {
+			Transferable tr = event.getTransferable();
+			DataFlavor[] flavors = tr.getTransferDataFlavors();
+			for (int i = 0; i < flavors.length; i++) {
+				if (flavors[i].isFlavorJavaFileListType()) {
+					event.acceptDrop(DnDConstants.ACTION_COPY);
+					List list = (List) tr.getTransferData(flavors[i]);
+					for (int j = 0; j < list.size(); j++) {
+						//textAreaForDragandDrop.append(list.get(j) + "\n");
+						textAreaForDragandDrop.append("File/Folder has been Successfully dropped\n");
+						pathArray.add((list.get(j)).toString());
+					}
+					event.dropComplete(true);
+					return;
+				}
+			}
+			textAreaForDragandDrop.append("Drop failed: " + event);
+			event.rejectDrop();
+		} catch (UnsupportedFlavorException e) {
+			e.printStackTrace();
+			event.rejectDrop();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
 	}
 }

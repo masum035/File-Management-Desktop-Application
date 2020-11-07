@@ -1,5 +1,6 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -14,31 +15,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class imageConverter implements DropTargetListener {
-	private JTextField textField1;
-	private JButton fileChooseButton;
-	private JTextField textField2;
 	private JTextArea textArea;
 	private JPanel imageConverterPanel;
 	private JButton convertButton;
+	private JButton chooseFolderButton;
+	private JButton imageConvertButton;
+	private JLabel infoAboutConverting;
+	private JLabel dragLabel;
+	private JLabel infoAboutConverting02;
 	ArrayList<String> pathArray = new ArrayList<>();
+	String folderofDestinationPath = "";
 
 	public imageConverter() {
 		DropTarget dt = new DropTarget(textArea, this);
 		JFrame imageConverterFrame = new JFrame();
 		imageConverterFrame.add(imageConverterPanel);
-		imageConverterFrame.setSize(600, 480);
+		imageConverterFrame.setSize(670, 480);
 		imageConverterFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		imageConverterFrame.setLocationRelativeTo(null);
 		imageConverterFrame.setVisible(true);
 
-		convertButton.addActionListener(new ActionListener() {
+		imageConvertButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int sz = pathArray.size();
 				for (int i = 0; i < sz; i++) {
-					System.out.println(pathArray.get(i));
-					String destfolderLocation = "C:\\Users\\Malware\\Pictures\\Testing Folder\\";
-					String destFileName = "convertedImage";
+					//System.out.println(pathArray.get(i));
+					String destfolderLocation = folderofDestinationPath;
+					String destFileName = "\\convertedImage" + i;
 					Path sourceFileLocation = Path.of(pathArray.get(i));
 					File souceFile = new File(String.valueOf(sourceFileLocation));
 
@@ -55,10 +59,35 @@ public class imageConverter implements DropTargetListener {
 						ImageIO.write(image, "bmp", new File(destfolderLocation + destFileName + ".bmp"));
 
 						ImageIO.write(image, "jpeg", new File(destfolderLocation + destFileName + ".jpeg"));
+
+						infoAboutConverting.setForeground(Color.GREEN);
+						infoAboutConverting02.setForeground(Color.GREEN);
+						infoAboutConverting.setVisible(true);
+						infoAboutConverting.setText("image has been successfully converted");
+						infoAboutConverting02.setVisible(true);
+						infoAboutConverting02.setText("Please check your destination Folder ");
+						chooseFolderButton.setVisible(false);
 					} catch (IOException exe) {
 						//exe.printStackTrace();
-						textArea.append("\nThe file you dropped was not an actual image file\nPlease drop the actual image file to convert");
+						infoAboutConverting.setText("The file you dropped was not an actual image file");
+						infoAboutConverting02.setText("Please drop the actual image file to convert");
+						convertButton.setVisible(false);
+						chooseFolderButton.setVisible(false);
 					}
+				}
+			}
+		});
+		chooseFolderButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				imageConvertButton.setVisible(true);
+				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				fileChooser.setCurrentDirectory(new File(".")); //it will be in our current directory
+				int response = fileChooser.showOpenDialog(dragLabel);
+				if (response == JFileChooser.APPROVE_OPTION) {
+					folderofDestinationPath = fileChooser.getSelectedFile().getAbsolutePath();
+					//textAreaForDestination.setText(fileDestinationPath);
 				}
 			}
 		});
@@ -66,7 +95,7 @@ public class imageConverter implements DropTargetListener {
 //here goes Drag & Drop
 	@Override
 	public void dragEnter(DropTargetDragEvent dtde) {
-		System.out.println("Drag Enter");
+		//System.out.println("Drag Enter");
 	}
 
 	@Override
@@ -82,34 +111,40 @@ public class imageConverter implements DropTargetListener {
 
 	@Override
 	public void dropActionChanged(DropTargetDragEvent dtde) {
-		System.out.println("Drop Action Changed");
+		//System.out.println("Drop Action Changed");
 	}
 
 	@Override
 	public void drop(DropTargetDropEvent event) {
+		chooseFolderButton.setVisible(true);
 		try {
 			Transferable tr = event.getTransferable();
 			DataFlavor[] flavors = tr.getTransferDataFlavors();
 			for (int i = 0; i < flavors.length; i++) {
 				if (flavors[i].isFlavorJavaFileListType()) {
 					event.acceptDrop(DnDConstants.ACTION_COPY);
-					System.out.println("Successful file list drop.\n");
+					textArea.append("Successfully file dropped.\n");
 					List list = (List) tr.getTransferData(flavors[i]);
 					for (int j = 0; j < list.size(); j++) {
-						textArea.append(list.get(j) + "\n");
+						//textArea.append(list.get(j) + "\n");
 						String allimageFile = list.get(i).toString();
 						if (allimageFile.contains(".jpg") || allimageFile.contains(".png") || allimageFile.contains(".gif") || allimageFile.contains(".jpeg") || allimageFile.contains(".bmp")) {
 							pathArray.add(allimageFile);
+							infoAboutConverting.setVisible(false);
+							infoAboutConverting02.setVisible(false);
 						}else {
-							textArea.append("Last Dropped item is not an image file\nplease Drop an actual image file\n");
+							infoAboutConverting.setText("Last Dropped item is not an image file");
+							infoAboutConverting02.setText("please Drop an actual image file");
+							chooseFolderButton.setVisible(false);
+							imageConvertButton.setVisible(false);
 						}
 					}
 					event.dropComplete(true);
-					convertButton.setVisible(true);
+					imageConvertButton.setVisible(false);
 					return;
 				}
 			}
-			System.out.println("Drop failed: " + event);
+			textArea.append("Drop failed: " + event +"\n");
 			event.rejectDrop();
 		} catch (UnsupportedFlavorException e) {
 			e.printStackTrace();
