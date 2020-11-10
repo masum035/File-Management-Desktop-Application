@@ -40,9 +40,13 @@ public class imageConverter implements DropTargetListener {
 			public void actionPerformed(ActionEvent e) {
 				int sz = pathArray.size();
 				for (int i = 0; i < sz; i++) {
-					//System.out.println(pathArray.get(i));
+					String inputFilePath =  pathArray.get(i);
+					int	lastDotPosition = inputFilePath.lastIndexOf('.');
+					int lastSlashPosition =  inputFilePath.lastIndexOf('\\');
+					String actualFileName = inputFilePath.substring(lastSlashPosition + 1,lastDotPosition);
+					String destFileName = "\\converted-Image_" + actualFileName;
+
 					String destfolderLocation = folderofDestinationPath;
-					String destFileName = "\\convertedImage" + i;
 					Path sourceFileLocation = Path.of(pathArray.get(i));
 					File souceFile = new File(String.valueOf(sourceFileLocation));
 

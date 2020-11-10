@@ -157,14 +157,19 @@ public class Encryption implements DropTargetListener {
 				for (int i = 0; i < pathArray.size(); i++) {
 					String fileinputPath = pathArray.get(i);
 					String extention = "";
+					int lastDotPosition = 0;
 					if (fileinputPath.contains(".")) {
-						int lastDotPosition = fileinputPath.lastIndexOf('.');
+						lastDotPosition = fileinputPath.lastIndexOf('.');
 						extention = fileinputPath.substring(lastDotPosition + 1, fileinputPath.length());
 					}
-					String outputFileLocation = outputFilePath + "\\EncryptedFile_" + i + "." + extention;
+					int lastSlashPosition =  fileinputPath.lastIndexOf('\\');
+					String actualFileName = fileinputPath.substring(lastSlashPosition + 1,lastDotPosition);
+					String encryptedFileName = "Encrypted_" + actualFileName;
+					String outputFileLocation = outputFilePath + "\\" + encryptedFileName + "." + extention;
 					try {
-						directFileEncrytion(secretkey, fileinputPath, outputFileLocation);
-						JOptionPane.showMessageDialog(textAreaforEncrypt, "File has Been Saved as 'EncryptedFile_' in your choosen directory", "File Encryption Success", JOptionPane.INFORMATION_MESSAGE);
+						if (directFileEncrytion(secretkey, fileinputPath, outputFileLocation)) {
+							JOptionPane.showMessageDialog(textAreaforEncrypt, "File has Been Saved as " + encryptedFileName +" in your choosen directory", "File Encryption Success",JOptionPane.INFORMATION_MESSAGE);
+						}
 					} catch (NoSuchPaddingException noSuchPaddingException) {
 						noSuchPaddingException.printStackTrace();
 					} catch (NoSuchAlgorithmException noSuchAlgorithmException) {
@@ -232,27 +237,43 @@ public class Encryption implements DropTargetListener {
 		return encrypText;
 	}
 
-	public static void directFileEncrytion(String secretKey, String fileinputPath, String fileoutputPath) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IOException, BadPaddingException, IllegalBlockSizeException {
+	public static boolean directFileEncrytion(String secretKey, String fileinputPath, String fileoutputPath) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IOException, BadPaddingException, IllegalBlockSizeException {
 		var key = new SecretKeySpec(secretKey.getBytes(), "AES");
 		var cipher = Cipher.getInstance("AES");
 		cipher.init(Cipher.ENCRYPT_MODE, key);
 
 		//here i read the file & take it into array
 		var fileInput = new File(fileinputPath);
-		var inputStream = new FileInputStream(fileInput);
+		FileInputStream inputStream = null;
+		try {
+			inputStream = new FileInputStream(fileInput);
+		} catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "After Dropping the File here, you might renamed/deleted a file from Original Source", "File not Found",JOptionPane.WARNING_MESSAGE);
+			return false;
+		}
 		var inputBytes = new byte[(int) fileInput.length()];
 		inputStream.read(inputBytes);
 
 		//here i am calling the encryption process
-		var outputBytes = cipher.doFinal(inputBytes);
+		try {
+			var outputBytes = cipher.doFinal(inputBytes);
 
-		//now i want to add this outputStram into a new file
-		var fileEncryptOut = new File(fileoutputPath);
-		var outputStream = new FileOutputStream(fileEncryptOut);
-		outputStream.write(outputBytes);
+			//now i want to add this outputStram into a new file
+			var fileEncryptOut = new File(fileoutputPath);
+			var outputStream = new FileOutputStream(fileEncryptOut);
+			outputStream.write(outputBytes);
 
-		inputStream.close();
-		outputStream.close();
+			inputStream.close();
+			outputStream.close();
+		} catch (IllegalBlockSizeException e) {
+			e.printStackTrace();
+		} catch (BadPaddingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "This file can not be encrypted right now.\nTry Again Later", "Couldn't Encrypt", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		return true;
 	}
 
 	@Override

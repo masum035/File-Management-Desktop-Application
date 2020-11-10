@@ -82,6 +82,8 @@ public class LockTheFile {
 			zipParameters.setEncryptionMethod(EncryptionMethod.AES);
 			net.lingala.zip4j.ZipFile zipFile = new net.lingala.zip4j.ZipFile(zipFileName, password.toCharArray());
 			zipFile.addFile(new File(fileLocation), zipParameters);
+
+			JOptionPane.showInternalMessageDialog(null,"Your File has been Successfully Secured","Yess! Success!!",JOptionPane.INFORMATION_MESSAGE);
 		} catch (ZipException e) {
 			e.printStackTrace();
 		}
