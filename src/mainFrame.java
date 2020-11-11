@@ -170,7 +170,7 @@ public class mainFrame implements ActionListener {
 			System.out.println("instruction goes here");
 		}
 		if (e.getSource() == MoveFileMenu) {
-			System.out.println("");
+			JOptionPane.showMessageDialog(null,"You can cmove any file .\nJust Dreag & Drop Here","Help For MoveFile Menu",JOptionPane.INFORMATION_MESSAGE);
 		}
 		if (e.getSource() == SearchFileMenu) {
 			System.out.println("");

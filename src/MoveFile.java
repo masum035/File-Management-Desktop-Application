@@ -41,11 +41,10 @@ public class MoveFile implements DropTargetListener {
 				des = fileDestinationPath; // TODO: 11/5/2020 change here please
 
 				File srcFile = new File(src);
-				if (!srcFile.isDirectory()) {
 					int lastSlashPosition = des.lastIndexOf('\\');
 					String desFileLocation = des.substring(0, lastSlashPosition);
 					des = desFileLocation + "\\MasumProduction";
-
+				if (!srcFile.isDirectory()) {
 					if (src.contains(".")) {
 						int lastDotPosition = src.lastIndexOf('.');
 						String fileExtention = src.substring(lastDotPosition + 1, src.length());

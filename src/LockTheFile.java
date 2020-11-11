@@ -37,7 +37,7 @@ public class LockTheFile implements DropTargetListener {
 		DropTarget dt = new DropTarget(justDragDropAnyTextArea, this);
 		JFrame LockFrame = new JFrame();
 		LockFrame.add(LockFilePanel);
-		LockFrame.setSize(680, 210);
+		LockFrame.setSize(680, 480);
 		LockFrame.setLocationRelativeTo(null);
 		LockFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		LockFrame.setVisible(true);
@@ -175,7 +175,7 @@ public class LockTheFile implements DropTargetListener {
 	public void drop(DropTargetDropEvent event) {
 		justDragDropAnyTextArea.append("\n");
 		//chooseFolderButtonForDragAndDrop.setVisible(true);
-		infoAboutZipping.setVisible(true);
+		//infoAboutZipping.setVisible(true);
 
 		try {
 			Transferable tr = event.getTransferable();
