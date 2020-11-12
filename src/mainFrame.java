@@ -77,12 +77,12 @@ public class mainFrame implements ActionListener {
 		//menuBar.add(gameMenu);
 
 
-		createNewFileButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				CreateNewFile CreateFileobj = new CreateNewFile();
-			}
-		});
+//		createNewFileButton.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				CreateNewFile CreateFileobj = new CreateNewFile();
+//			}
+//		});
 		encryptFileButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -95,12 +95,12 @@ public class mainFrame implements ActionListener {
 				Decryption DecryptObj = new Decryption();
 			}
 		});
-		createNewFileButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				CreateNewFile creatFileObj = new CreateNewFile();
-			}
-		});
+//		createNewFileButton.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				CreateNewFile creatFileObj = new CreateNewFile();
+//			}
+//		});
 		moveFileButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -156,7 +156,7 @@ public class mainFrame implements ActionListener {
 		RoootFrame.setVisible(true);
 		RoootFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		//RoootFrame.setOpacity((float) .8);
-		RoootFrame.setSize(250, 430);
+		RoootFrame.setSize(250, 410);
 		RoootFrame.setLocation(6, 90);
 	}
 
@@ -170,7 +170,7 @@ public class mainFrame implements ActionListener {
 			System.out.println("instruction goes here");
 		}
 		if (e.getSource() == MoveFileMenu) {
-			JOptionPane.showMessageDialog(null,"You can cmove any file .\nJust Dreag & Drop Here","Help For MoveFile Menu",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,"You can move any file .\nJust Dreag & Drop Here","Help For MoveFile Menu",JOptionPane.INFORMATION_MESSAGE);
 		}
 		if (e.getSource() == SearchFileMenu) {
 			System.out.println("");

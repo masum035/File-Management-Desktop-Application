@@ -41,17 +41,20 @@ public class MoveFile implements DropTargetListener {
 				des = fileDestinationPath; // TODO: 11/5/2020 change here please
 
 				File srcFile = new File(src);
-					int lastSlashPosition = des.lastIndexOf('\\');
-					String desFileLocation = des.substring(0, lastSlashPosition);
-					des = desFileLocation + "\\MasumProduction";
 				if (!srcFile.isDirectory()) {
+					int lastSlashPosition = des.lastIndexOf('\\');
+					String desFileLocation = des.substring(0, lastSlashPosition+1);
+					des = desFileLocation;
 					if (src.contains(".")) {
 						int lastDotPosition = src.lastIndexOf('.');
 						String fileExtention = src.substring(lastDotPosition + 1, src.length());
-						des = desFileLocation + "\\MasumProduction." + fileExtention;
+						des = desFileLocation + "\\OurProjectProduction." + fileExtention;
 					}
 				} else {
-					des = des + "\\MasumProduction";
+					int lastSlashPosition = fileDestinationPath.lastIndexOf('\\');
+					String destFileLocation = fileDestinationPath.substring(0, lastSlashPosition+1);
+					des = destFileLocation;
+					//des = des + "\\OurProjectProduction";
 				}
 				String finalDes = des;
 				String finalSrc = src;
@@ -62,10 +65,11 @@ public class MoveFile implements DropTargetListener {
 						file.delete();
 						infoLabel.setForeground(Color.GREEN);
 						infoLabel.setText("File moved Successfully");
+						infoLabel2.setText("");
 					} else {
 						infoLabel.setForeground(Color.RED);
 						infoLabel.setText("File can not be moved.please check the source or destination file name");
-						infoLabel2.setText("N.B:This Error may happen if there are already duplicate named file exists.Such as \"MasumProduction\"");
+						infoLabel2.setText("N.B:This Error may happen if there are already duplicate named file exists.Such as \"OurProjectProduction\"");
 					}
 				} catch (Exception exception) {
 					exception.printStackTrace();

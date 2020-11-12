@@ -16,6 +16,7 @@ public class Log_In_page implements ActionListener {
 	private JPasswordField passwordField;
 	private JButton logInButton;
 	private JButton logOutButton;
+	public String password;
 	static int flag = 0;
 
 	public Log_In_page() {
@@ -60,7 +61,7 @@ public class Log_In_page implements ActionListener {
 				}
 				//Read is alright
 				String username = textField_for_name.getText();
-				String password = String.valueOf(passwordField.getPassword());
+				password = String.valueOf(passwordField.getPassword());
 				CSVReader reader = null;
 				String[] readArray = new String[5];
 				try {

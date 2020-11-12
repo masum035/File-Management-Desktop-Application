@@ -28,6 +28,7 @@ public class LockTheFile implements DropTargetListener {
 	private JButton justLockButton;
 	private JButton securedLockButton;
 	private JLabel infoAboutZipping;
+	private JPasswordField passwordField;
 	private JTextField textField_dir;
 	private JButton justLockItButton;
 
@@ -74,11 +75,12 @@ public class LockTheFile implements DropTargetListener {
 				//String fileLoCation = textField_dir.getText();
 				for (int i = 0; i < pathArray.size(); i++) {
 					String fileLoCation = pathArray.get(i);
+					String password = String.valueOf(passwordField.getPassword());
 					File file = new File(fileLoCation);
 					if (!file.isDirectory()) {
-						if(secureLock(fileLoCation)){
+						if (secureLock(fileLoCation,password)) {
 							JOptionPane.showInternalMessageDialog(null, "Your File has been Successfully Secured", "Yess! Success!!", JOptionPane.INFORMATION_MESSAGE);
-						}else {
+						} else {
 							JOptionPane.showInternalMessageDialog(null, "One of the File here is already a zipped File\nDrop another file/files", "Sorry :'(", JOptionPane.ERROR_MESSAGE);
 						}
 					} else {
@@ -89,7 +91,7 @@ public class LockTheFile implements DropTargetListener {
 		});
 	}
 
-	public static boolean secureLock(String fileLocation) {
+	public static boolean secureLock(String fileLocation,String password) {
 		// TODO: 10/18/2020 choose your zip file location & delete that previous file & set passwordField
 
 		if (fileLocation.contains(".zip")) {
@@ -105,7 +107,6 @@ public class LockTheFile implements DropTargetListener {
 			zipFileName = zipFileLocation + "\\" + zipFileNaame + ".zip";
 		}
 
-		String password = "abc";
 		try {
 			ZipParameters zipParameters = new ZipParameters();
 			zipParameters.setEncryptFiles(true);
@@ -128,27 +129,14 @@ public class LockTheFile implements DropTargetListener {
 	public static void fileLockFunctionReadOnly(String filePath) {
 		int lastSlashPosition = filePath.lastIndexOf('\\');
 //		int lastDotPosition = filePath.lastIndexOf('.');
-		String filename = filePath.substring(lastSlashPosition+1,filePath.length());
+		String filename = filePath.substring(lastSlashPosition + 1, filePath.length());
 		File file = new File(filePath);
 		boolean success = /*file.setReadOnly(); */ file.setWritable(false);
 		if (success) {
-			JOptionPane.showMessageDialog(null,"Your File '"+ filename + "' has been locked","Locked Successfully",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Your File '" + filename + "' has been locked", "Locked Successfully", JOptionPane.INFORMATION_MESSAGE);
 		} else {
-			JOptionPane.showMessageDialog(null,"Your File '"+ filename + "' could not be Locked.Try Secure Lock","Locked Failed",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Your File '" + filename + "' could not be Locked.Try Secure Lock", "Locked Failed", JOptionPane.ERROR_MESSAGE);
 		}
-
-	}
-//this is for vanish mode
-	public static void FileLockFuntionusingFileChannel(Path filePath) throws IOException {
-		FileChannel channel = new RandomAccessFile(String.valueOf(filePath), "rw").getChannel();
-		FileLock lock = channel.lock();
-		try {
-			TimeUnit.SECONDS.sleep(5);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		lock.release();
-		channel.close();
 	}
 
 	@Override
