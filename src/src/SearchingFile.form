@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="src.SearchingFile">
+  <grid id="27dc6" binding="SearchPanel" layout-manager="GridLayoutManager" row-count="7" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="828" height="417"/>
+    </constraints>
+    <properties>
+      <background color="-5973307"/>
+    </properties>
+    <border type="bevel-lowered" title="Search File" title-justification="2" title-position="3">
+      <font name="Segoe Print" size="18"/>
+      <title-color color="-5684225"/>
+    </border>
+    <children>
+      <component id="9f2b5" class="javax.swing.JTextField" binding="textFieldforDir">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="12" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <caretColor color="-13638607"/>
+          <font name="Open Sans Semibold" size="16"/>
+          <foreground color="-13638607"/>
+          <toolTipText value="Put the File Location Here"/>
+        </properties>
+      </component>
+      <component id="166ac" class="javax.swing.JTextArea" binding="textArea">
+        <constraints>
+          <grid row="4" column="0" row-span="2" col-span="13" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <editable value="false"/>
+          <font name="Comic Sans MS" size="15"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <hspacer id="cf5f1">
+        <constraints>
+          <grid row="6" column="12" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="914c6">
+        <constraints>
+          <grid row="6" column="7" row-span="1" col-span="3" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="31d2d">
+        <constraints>
+          <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="5e3f7">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="4" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="87b3d" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Search By Name"/>
+        </properties>
+      </component>
+      <component id="26f3f" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Show All "/>
+        </properties>
+      </component>
+      <component id="b3c9e" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="File / Folder Path:"/>
+        </properties>
+      </component>
+      <component id="88eed" class="javax.swing.JCheckBox" binding="checkBoxforAll">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <selected value="false"/>
+          <text value=""/>
+          <toolTipText value="Just Click it,Bro!!"/>
+        </properties>
+      </component>
+      <component id="468b1" class="javax.swing.JCheckBox" binding="checkBoxforOnlyHidden">
+        <constraints>
+          <grid row="1" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+          <toolTipText value="Just Click it,Bro!!"/>
+        </properties>
+      </component>
+      <component id="85cad" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Show sub-folder"/>
+        </properties>
+      </component>
+      <component id="b58d" class="javax.swing.JCheckBox" binding="checkBoxforSubFolder">
+        <constraints>
+          <grid row="1" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+          <toolTipText value="Just Click it,Bro!!"/>
+        </properties>
+      </component>
+      <hspacer id="8ab27">
+        <constraints>
+          <grid row="6" column="11" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="58d7d" class="javax.swing.JTextField" binding="textFieldbyName">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="6" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <autoscrolls value="true"/>
+          <background color="-16777216"/>
+          <caretColor color="-13638607"/>
+          <font name="SansSerif" size="16"/>
+          <foreground color="-13638607"/>
+          <selectedTextColor color="-2439127"/>
+          <toolTipText value="Just Press Enter"/>
+        </properties>
+      </component>
+      <hspacer id="28192">
+        <constraints>
+          <grid row="1" column="5" row-span="1" col-span="2" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="8415e">
+        <constraints>
+          <grid row="1" column="10" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="f444b" class="javax.swing.JButton" binding="buttonforSearch">
+        <constraints>
+          <grid row="3" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Comic Sans MS" size="16"/>
+          <foreground color="-5684225"/>
+          <text value="Start Search"/>
+          <visible value="false"/>
+        </properties>
+      </component>
+      <component id="cd09" class="javax.swing.JButton" binding="startSearchButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Comic Sans MS" size="16"/>
+          <foreground color="-5684225"/>
+          <text value="Start Search"/>
+          <visible value="false"/>
+        </properties>
+      </component>
+      <component id="154a7" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Show only Hidden File"/>
+        </properties>
+      </component>
+      <component id="aac14" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Search By Extension"/>
+        </properties>
+      </component>
+      <component id="a0f71" class="javax.swing.JTextField" binding="textFieldbyExtention">
+        <constraints>
+          <grid row="2" column="8" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <caretColor color="-13638607"/>
+          <font name="SansSerif" size="16"/>
+          <foreground color="-13638607"/>
+          <selectedTextColor color="-2439127"/>
+          <toolTipText value="Just Press Enter"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

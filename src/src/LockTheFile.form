@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="src.LockTheFile">
+  <grid id="27dc6" binding="LockFilePanel" layout-manager="GridLayoutManager" row-count="4" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="580" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="bevel-raised" title="Lock Important File" title-justification="2" title-position="3">
+      <font name="Segoe Script" size="18"/>
+      <title-color color="-5684225"/>
+    </border>
+    <children>
+      <scrollpane id="ec06">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="9dc00" class="javax.swing.JTextArea" binding="justDragDropAnyTextArea" default-binding="true">
+            <constraints/>
+            <properties>
+              <background color="-3168955"/>
+              <caretColor color="-7200307"/>
+              <editable value="false"/>
+              <font name="Comic Sans MS" size="22"/>
+              <foreground color="-16777216"/>
+              <lineWrap value="true"/>
+              <text value="Just Drag &amp; Drop any Files to get Secured"/>
+              <toolTipText value="Just Drag &amp; Drop any Files to get Secured"/>
+              <wrapStyleWord value="true"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <component id="e9388" class="javax.swing.JButton" binding="justLockButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-5684225"/>
+          <font name="Inconsolata" size="20"/>
+          <foreground color="-16777216"/>
+          <text value="Just Lock"/>
+        </properties>
+      </component>
+      <component id="16ca3" class="javax.swing.JButton" binding="securedLockButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-12270818"/>
+          <font name="Fira Code Medium" size="22"/>
+          <foreground color="-16777216"/>
+          <selected value="false"/>
+          <text value="Secured Lock"/>
+        </properties>
+      </component>
+      <component id="9b7e5" class="javax.swing.JLabel" binding="infoAboutZipping">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Droid Sans" size="18"/>
+          <text value="Just Drag &amp; Drop any kind of file here,isn't it Simple !"/>
+        </properties>
+      </component>
+      <component id="fefc8" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Georgia" size="18" style="2"/>
+          <text value="Password for Secured Lock :"/>
+        </properties>
+      </component>
+      <component id="19060" class="javax.swing.JPasswordField" binding="passwordField">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <caretColor color="-1"/>
+          <echoChar value="*"/>
+          <editable value="true"/>
+          <font name="Fira Code" size="18"/>
+          <foreground color="-12270818"/>
+          <toolTipText value="use secret password"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

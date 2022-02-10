@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="src.mainFrame">
+  <grid id="27dc6" binding="RoooTpanel" layout-manager="GridLayoutManager" row-count="10" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="273" height="380"/>
+    </constraints>
+    <properties/>
+    <border type="bevel-lowered" title="File Manager" title-justification="2" title-position="2">
+      <font name="MV Boli" size="14" style="0"/>
+      <title-color color="-711668"/>
+      <color color="-13634255"/>
+    </border>
+    <children>
+      <component id="c9319" class="javax.swing.JButton" binding="moveFileButton" default-binding="true">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Move File"/>
+        </properties>
+      </component>
+      <component id="fb6e4" class="javax.swing.JButton" binding="searchFileButton" default-binding="true">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Search File"/>
+        </properties>
+      </component>
+      <component id="96aad" class="javax.swing.JButton" binding="lockFileButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Lock File"/>
+        </properties>
+      </component>
+      <component id="5c562" class="javax.swing.JButton" binding="unLockFileButton" default-binding="true">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Unlock File"/>
+        </properties>
+      </component>
+      <component id="522c2" class="javax.swing.JButton" binding="encryptFileButton" default-binding="true">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Encrypt File"/>
+        </properties>
+      </component>
+      <component id="efc44" class="javax.swing.JButton" binding="decryptFileButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Decrypt File"/>
+        </properties>
+      </component>
+      <component id="f217b" class="javax.swing.JButton" binding="deleteFileButton" default-binding="true">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Delete File"/>
+        </properties>
+      </component>
+      <component id="6df69" class="javax.swing.JButton" binding="propertiesButton" default-binding="true">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Properties"/>
+        </properties>
+      </component>
+      <component id="3b5de" class="javax.swing.JButton" binding="hideFileButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Hide File"/>
+        </properties>
+      </component>
+      <component id="8cfba" class="javax.swing.JButton" binding="imageConverterButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Image Converter"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
