@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="Computer-file-management:jar2">
-    <output-path>$PROJECT_DIR$/out/artifacts/Computer_file_management_jar2</output-path>
-    <root id="archive" name="Computer-file-management.jar">
-      <element id="module-output" name="Computer-file-management" />
-    </root>
-  </artifact>
-</component>

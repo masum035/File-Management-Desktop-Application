@@ -1,6 +1,11 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Computer-file-management:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Computer_file_management_jar</output-path>
-    <root id="archive" name="Computer-file-management.jar" />
+  <artifact type="jar" name="Computer_File_Management:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Computer_File_Management_jar</output-path>
+    <root id="archive" name="Computer_File_Management.jar">
+      <element id="module-output" name="Computer_File_Management" />
+      <element id="extracted-dir" path="E:/Downloads/commons-lang3-3.11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/Compressed/zip4j-2.9.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/opencsv-5.5.2.jar" path-in-jar="/" />
+    </root>
   </artifact>
 </component>
